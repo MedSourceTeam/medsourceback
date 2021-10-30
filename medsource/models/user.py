@@ -1,5 +1,6 @@
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
+from django.contrib.auth.models import User
 
 
 # ---------------------------------- EPS ---------------------------------------
@@ -28,8 +29,8 @@ class Hospital(models.Model):
 # ---------------------------------- PACIENTES ---------------------------------------
 
 class Patient ( models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE , related_name = "Usuario")
     identification = models.IntegerField('Cedula', null=False , blank=False )
-    name = models.CharField('Nombre',max_length=200, null=False , blank=False )
     date_of_birth = models.DateTimeField('Fecha de Nacimiento', null=False, blank=False)
     phone = PhoneNumberField('Teléfono', null=True, blank=True)
     marital_status = models.CharField('Estado Civil',max_length=200 , null=True , blank=True )
@@ -44,8 +45,8 @@ class Patient ( models.Model):
 # ---------------------------------- ENFERMEROS ---------------------------------------
 
 class Nurse ( models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE , related_name = "Usuario")
     identification = models.IntegerField('Cedula', null=False , blank=False )
-    name = models.CharField('Nombre',max_length=200, null=False , blank=False )
     education = models.CharField('Formación',max_length=200 , null=False , blank=False )
     area = models.CharField('Area',max_length=200 , null=False , blank=False )
     hospital = models.ForeignKey('Hospital', on_delete=models.PROTECT, related_name='Hospital', null=False , blank=False )
@@ -58,8 +59,8 @@ class Nurse ( models.Model):
 # ---------------------------------- Doctores ---------------------------------------
 
 class Doctor ( models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE , related_name = "Usuario")
     identification = models.IntegerField('Cedula', null=False , blank=False )
-    name = models.CharField('Nombre',max_length=200, null=False , blank=False )
     education = models.CharField('Formación',max_length=200 , null=False , blank=False )
     specialization = models.CharField('Especialización',max_length=200 , null=True , blank=True )
     hospital = models.ForeignKey('Hospital', on_delete=models.PROTECT, related_name='Hospital', null=False , blank=False )
