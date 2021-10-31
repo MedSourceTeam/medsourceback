@@ -53,7 +53,7 @@ SIMPLE_JWT = {
     'BLACKLIST_AFTER_ROTATION': True,
     'UPDATE_LAST_LOGIN': False,
     'ALGORITHM': 'HS256',
-    'USER_ID_FIELD': 'UserId',  # TODO: Cambiar por el id de la tabla usuario
+    # 'USER_ID_FIELD': 'UserId',  # TODO: Cambiar por el id de la tabla usuario
 }
 
 MIDDLEWARE = [
@@ -82,7 +82,7 @@ REST_FRAMEWORK = {
 }
 
 # TODO: Cambiar por la clase Usuario que se defina}
-AUTH_USER_MODEL = 'medsource.Usuario'
+#AUTH_USER_MODEL = 'medsource.Usuario'
 
 ROOT_URLCONF = 'medsourceback.urls'
 
