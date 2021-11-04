@@ -11,4 +11,8 @@ urlpatterns = [
     path('enfermero/registro', NurseRegistView.as_view()),
     path('antecedente/ingreso', RecordRegistView.as_view()),
     path('vinculacion_antecedente/ingreso', Patient_RecordRegistView.as_view()),
+    path('paciente/ingreso', PatientRegistView.as_view()),
+    path('procedimiento/ingreso', ProcedureRegistView.as_view()),
+    path('desarrollo/ingreso', DevelopmentRegistView.as_view()),
+    path('consulta/ingreso', ConsultationRegistView.as_view()),
 ]
