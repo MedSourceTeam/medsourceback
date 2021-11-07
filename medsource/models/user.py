@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 
 # ---------------------------------- EPS ---------------------------------------
 
+
 class Eps(models.Model):
     name = models.CharField(
         'Nombre de la Eps', max_length=100, null=False, blank=False)
@@ -30,7 +31,6 @@ class Hospital(models.Model):
     class Meta:
         verbose_name = 'Hospital'
         verbose_name_plural = 'Hospitales'
-
 
 
 # ---------------------------------- PACIENTES ---------------------------------------
@@ -102,10 +102,7 @@ class Doctor (models.Model):
         verbose_name_plural = 'Doctores'
 
 
-
-
 # ---------------------------------- ANTECEDENTES ---------------------------------------
-
 
 
 class Record (models.Model):
@@ -122,7 +119,6 @@ class Record (models.Model):
     class Meta:
         verbose_name = 'Antecedente'
         verbose_name_plural = 'Antecedentes'
-
 
 
 # ---------------------------------- ANTECEDENTES - PACIENTES ---------------------------------------
@@ -145,7 +141,6 @@ class Patient_Record (models.Model):
 # ---------------------------------- Procedimientos ---------------------------------------
 
 
-
 class Procedure (models.Model):
     name = models.CharField(
         'Nombre del procedimiento', max_length=200, null=False, blank=False)
@@ -160,9 +155,7 @@ class Procedure (models.Model):
         verbose_name_plural = 'Procedimientos'
 
 
-
 # ---------------------------------- Desarrollo Procedimientos ---------------------------------------
-
 
 
 class Development (models.Model):

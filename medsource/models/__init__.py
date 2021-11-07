@@ -1,1 +1,1 @@
-from .user import Doctor, Eps, Hospital, Patient, Nurse, Record, Patient_Record, Procedure, Development, Consultation
+from .user import *
