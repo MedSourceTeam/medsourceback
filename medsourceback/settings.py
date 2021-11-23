@@ -110,13 +110,6 @@ WSGI_APPLICATION = 'medsourceback.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
-""" DATABASES = {
-    'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'dc2u5rjbr3d8fj',
         'USER': 'rvpubhinapyndh',
@@ -124,8 +117,7 @@ DATABASES = {
         'HOST': 'ec2-34-236-88-129.compute-1.amazonaws.com',
         'PORT': '5432',
     }
-}"""  # TODO: Configuarar con datos reales de la base de datos
-
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
