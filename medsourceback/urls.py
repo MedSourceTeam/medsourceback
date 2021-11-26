@@ -3,7 +3,6 @@ from django.urls import path
 from medsource.views import *
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
-from medsource.views import hospitalListView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -18,5 +17,6 @@ urlpatterns = [
     path('procedimiento/ingreso', ProcedureRegistView.as_view()),
     path('desarrollo/ingreso', DevelopmentRegistView.as_view()),
     path('consulta/ingreso', ConsultationRegistView.as_view()),
-    path('hospital', HospitalListView.as_view())
+    path('hospital', HospitalListView.as_view()),
+    path('procedimientos/', ProcedureListView.as_view())
 ]
