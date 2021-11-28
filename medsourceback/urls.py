@@ -18,5 +18,6 @@ urlpatterns = [
     path('procedimiento/ingreso', ProcedureRegistView.as_view()),
     path('desarrollo/ingreso', DevelopmentRegistView.as_view()),
     path('consulta/ingreso', ConsultationRegistView.as_view()),
-    path('hospital', HospitalListView.as_view())
+    path('hospital', HospitalListView.as_view()),
+    path('reestablecer_contrasena/<str:arg>', TokenCRUDView.as_view()),
 ]

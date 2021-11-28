@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+import uuid
 
 # ---------------------------------- EPS ---------------------------------------
 
@@ -219,3 +220,17 @@ class Consultation (models.Model):
     class Meta:
         verbose_name = 'Consulta'
         verbose_name_plural = 'Consultas'
+
+
+# ---------------------------------- Tokens ---------------------------------------
+
+class Token(models.Model):
+    token = models.UUIDField('Token', auto_created=True,
+                             unique=True, primary_key=True, default=uuid.uuid4,)
+    code = models.IntegerField('Codigo', null=True, blank=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE,
+                                related_name='token', null=False, blank=False)
+
+    class Meta:
+        verbose_name = 'Token'
+        verbose_name_plural = 'Tokens'

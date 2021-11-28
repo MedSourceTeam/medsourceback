@@ -7,3 +7,4 @@ from .developmentSerializer import DevelopmentRegistView
 from .patientRegistView import PatientRegistView
 from .procedureRegistView import ProcedureRegistView
 from .hospitalListView import HospitalListView
+from .tokenCRUDView import TokenCRUDView

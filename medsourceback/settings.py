@@ -53,7 +53,8 @@ SIMPLE_JWT = {
     'BLACKLIST_AFTER_ROTATION': True,
     'UPDATE_LAST_LOGIN': False,
     'ALGORITHM': 'HS256',
-    # 'USER_ID_FIELD': 'UserId',  # TODO: Cambiar por el id de la tabla usuario
+    'USER_ID_FIELD': 'id',
+    'USER_ID_CLAIM': 'user_id',
 }
 
 MIDDLEWARE = [
@@ -81,8 +82,7 @@ REST_FRAMEWORK = {
     ]
 }
 
-# TODO: Cambiar por la clase Usuario que se defina}
-#AUTH_USER_MODEL = 'medsource.Usuario'
+#AUTH_USER_MODEL = 'django.contrib.auth.models.User'
 
 ROOT_URLCONF = 'medsourceback.urls'
 
@@ -161,3 +161,10 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "medsourcetm@gmail.com"
+EMAIL_HOST_PASSWORD = "Med2021*"
