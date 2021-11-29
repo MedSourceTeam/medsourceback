@@ -42,6 +42,8 @@ class Patient (models.Model):
     #    User, on_delete=models.CASCADE, related_name="Usuario")
     identification = models.IntegerField(
         'Cedula', null=False, blank=False, unique=True)
+    full_name = models.CharField(
+        'Nombre Completo', max_length=200, null=False, blank=False)
     date_of_birth = models.DateField(
         'Fecha de Nacimiento', null=False, blank=False)
     phone = models.BigIntegerField('Teléfono', null=True, blank=True)
