@@ -18,6 +18,8 @@ urlpatterns = [
     path('desarrollo/ingreso', DevelopmentRegistView.as_view()),
     path('consulta/ingreso', ConsultationRegistView.as_view()),
     path('hospital', HospitalListView.as_view()),
+    path('eps', EpsListView.as_view()),
+    path('antecedentes', RecordListView.as_view()),
     path('reestablecer_contrasena/<str:arg>', TokenCRUDView.as_view()),
     path('procedimientos/', ProcedureListView.as_view())
 ]

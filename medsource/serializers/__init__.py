@@ -8,4 +8,5 @@ from .patientSerializer import PatientSerializer
 from .procedureSerializer import ProcedureSerializer
 from .developmentSerializer import DevelopmentSerializer
 from .consultationSerializer import ConsultationSerializer
+from .epsSerializer import EpsSerializer
 from .tokenSerializer import TokenSerializer
