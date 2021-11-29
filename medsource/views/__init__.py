@@ -9,3 +9,5 @@ from .procedureRegistView import ProcedureRegistView
 from .hospitalListView import HospitalListView
 from .tokenCRUDView import TokenCRUDView
 from .procedureListView import ProcedureListView
+from .epsListView import EpsListView
+from .recordListView import RecordListView
