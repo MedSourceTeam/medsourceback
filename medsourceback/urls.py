@@ -21,5 +21,8 @@ urlpatterns = [
     path('eps', EpsListView.as_view()),
     path('antecedentes', RecordListView.as_view()),
     path('reestablecer_contrasena/<str:arg>', TokenCRUDView.as_view()),
-    path('procedimientos/', ProcedureListView.as_view())
+    path('procedimientos/', ProcedureListView.as_view()),
+    path("paciente/<int:identification>", PatientRUDView.as_view()),
+    path("doctor/<int:identification>", DoctorRUDView.as_view()),
+    path("enfermero/<int:identification>", NurseRUDView.as_view()),
 ]

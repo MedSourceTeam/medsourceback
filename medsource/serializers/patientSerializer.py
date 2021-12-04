@@ -9,7 +9,7 @@ class PatientSerializer(serializers.ModelSerializer):
     class Meta:
         model = Patient
         fields = ['identification', 'date_of_birth', 'phone',
-                  'marital_status', 'blood_type', 'eps', 'idEps']
+                  'marital_status', 'blood_type', 'eps', 'idEps', 'full_name']
         read_only_fields = ['eps']
         depth = 1
 
