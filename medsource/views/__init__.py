@@ -12,5 +12,6 @@ from .procedureListView import ProcedureListView
 from .epsListView import EpsListView
 from .recordListView import RecordListView
 from .patientRUDView import PatientRUDView
+from .patientListView import PatientListView
 from .doctorRUDView import DoctorRUDView
 from .nurseRUDView import NurseRUDView
