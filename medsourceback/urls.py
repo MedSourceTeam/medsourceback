@@ -25,4 +25,7 @@ urlpatterns = [
     path("paciente/<int:identification>", PatientRUDView.as_view()),
     path("doctor/<int:identification>", DoctorRUDView.as_view()),
     path("enfermero/<int:identification>", NurseRUDView.as_view()),
+    path("mostrar_antecedentes/", PatientRecordListView.as_view()),
+    path("mostrar_desarrollos/", DevelopmentListView.as_view()),
+    path("mostrar_consultas/", ConsultationListView.as_view()),
 ]

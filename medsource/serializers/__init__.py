@@ -10,3 +10,6 @@ from .developmentSerializer import DevelopmentSerializer
 from .consultationSerializer import ConsultationSerializer
 from .epsSerializer import EpsSerializer
 from .tokenSerializer import TokenSerializer
+from .showPatientRecordsSerializer import ShowPatientRecordsSerializer
+from .showDevelopmentSerializer import ShowDevelopmentSerializer
+from .showConsultationSerializer import ShowConsultationSerializer
