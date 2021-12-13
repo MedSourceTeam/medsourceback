@@ -15,6 +15,7 @@ class DevelopmentListView(generics.ListAPIView):
         nurse = self.request.query_params.get('nurse', None)
         procedure = self.request.query_params.get('procedure', None)
         hospital = self.request.query_params.get('hospital', None)
+        date = self.request.query_params.get('date', None)
         queryset = Development.objects.all()
 
         if patient:
@@ -27,5 +28,7 @@ class DevelopmentListView(generics.ListAPIView):
             queryset = queryset.filter(procedure__name__icontains=procedure)
         if hospital:
             queryset = queryset.filter(hospital__name__icontains=hospital)
+        if date:
+            queryset = queryset.filter(date=date)
 
         return queryset
