@@ -28,4 +28,6 @@ urlpatterns = [
     path("mostrar_antecedentes/", PatientRecordListView.as_view()),
     path("mostrar_desarrollos/", DevelopmentListView.as_view()),
     path("mostrar_consultas/", ConsultationListView.as_view()),
+    path("mostrar_medicos/", DoctorListView.as_view()),
+    path("mostrar_enfermeros/", NurseListView.as_view()),
 ]

@@ -13,3 +13,5 @@ from .tokenSerializer import TokenSerializer
 from .showPatientRecordsSerializer import ShowPatientRecordsSerializer
 from .showDevelopmentSerializer import ShowDevelopmentSerializer
 from .showConsultationSerializer import ShowConsultationSerializer
+from .showDoctorSerializer import ShowDoctorSerializer
+from .showNurseSerializer import ShowNurseSerializer

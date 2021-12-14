@@ -18,3 +18,5 @@ from .nurseRUDView import NurseRUDView
 from .patientRecordListView import PatientRecordListView
 from .developmentListView import DevelopmentListView
 from .consultationListView import ConsultationListView
+from .doctorListView import DoctorListView
+from .nurseListView import NurseListView
