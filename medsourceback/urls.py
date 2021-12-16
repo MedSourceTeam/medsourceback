@@ -11,7 +11,8 @@ urlpatterns = [
     path('medico/registro', DoctorRegistView.as_view()),
     path('enfermero/registro', NurseRegistView.as_view()),
     path('antecedente/ingreso', RecordRegistView.as_view()),
-    path('vinculacion_antecedente/ingreso', Patient_RecordRegistView.as_view()),
+    path('vinculacion_antecedente/ingreso',
+         Patient_RecordRegistView.as_view()),
     path('paciente/ingreso', PatientRegistView.as_view()),
     path('procedimiento/ingreso', ProcedureRegistView.as_view()),
     path('desarrollo/ingreso', DevelopmentRegistView.as_view()),
@@ -25,7 +26,7 @@ urlpatterns = [
     path("paciente/<int:identification>", PatientRUDView.as_view()),
     path("doctor/<int:identification>", DoctorRUDView.as_view()),
     path("enfermero/<int:identification>", NurseRUDView.as_view()),
-    path("mostrar_antecedentes/", PatientRecordListView.as_view()),
+    path("mostrar_antecedentes", PatientRecordListView.as_view()),
     path("mostrar_desarrollos/", DevelopmentListView.as_view()),
     path("mostrar_consultas/", ConsultationListView.as_view()),
 ]
