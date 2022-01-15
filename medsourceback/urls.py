@@ -31,4 +31,5 @@ urlpatterns = [
     path("mostrar_consultas/", ConsultationListView.as_view()),
     path("mostrar_medicos/", DoctorListView.as_view()),
     path("mostrar_enfermeros/", NurseListView.as_view()),
+    path("editar_desarrollo/<int:id>", DevelopmentRUDView.as_view()),
 ]
