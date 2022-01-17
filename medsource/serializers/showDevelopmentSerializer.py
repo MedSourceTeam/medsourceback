@@ -32,11 +32,13 @@ class ShowDevelopmentSerializer(serializers.ModelSerializer):
         if len(nurse_names) > 1:
             nurse_last_name = nurse_names[1]
         return {
-            "id": data.get(id),
+            "id": data.get("id"),
             "date": data.get("date"),
+            "room": data.get("room"),
             "comment": data.get("comment"),
             "patient": Patient.objects.get(full_name=data.get("patient")),
             "doctor": Doctor.objects.get(user__first_name=doctor_first_name, user__last_name=doctor_last_name),
             "nurse": Nurse.objects.get(user__first_name=nurse_first_name, user__last_name=nurse_last_name),
             "hospital": Hospital.objects.get(name=data.get("hospital")),
+            "procedure": Procedure.objects.get(name=data.get("procedure")),
         }

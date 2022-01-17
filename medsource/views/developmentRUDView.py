@@ -11,3 +11,6 @@ class DevelopmentRUDView(generics.RetrieveUpdateAPIView):
     serializer_class = ShowDevelopmentSerializer
     queryset = Development.objects.filter()
     lookup_field = "id"
+
+    def perform_update(self, serializer):
+        instance = serializer.save()
