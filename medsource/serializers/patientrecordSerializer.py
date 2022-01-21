@@ -11,7 +11,7 @@ class Patient_RecordSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Patient_Record
-        fields = ['patient', 'idPatient', 'record', 'idRecord']
+        fields = ['patient', 'idPatient', 'record', 'idRecord', 'id']
         read_only_fields = ['patient', 'record']
         depth = 1
 
