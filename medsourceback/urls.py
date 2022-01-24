@@ -36,4 +36,5 @@ urlpatterns = [
     path('vinculacion_antecedente/RUD/<int:pk>',
          PatientRecordRUDView.as_view()),
     path('procedimiento/RUD/<int:pk>', ProcedureRUDView.as_view()),
+    path('pacientes/RUD/<int:identification>', PatientRUDView.as_view()),
 ]
