@@ -20,7 +20,7 @@ class TokenCRUDView(views.APIView):
             token.save()
         subject = "Recuperacion de contraseña"
         message = """Para Recuperar su contraseña dirijase al siquiente enlace: <br> 
-        <a href="https://med-source.herokuapp.com/recuperarcontrasena/""" + str(token.token) + """">Recuperar Contraseña</a>"""
+        <a href="https://medsourcetm.herokuapp.com/recuperarcontrasena/""" + str(token.token) + """">Recuperar Contraseña</a>"""
         send_mail(subject, strip_tags(message),
                   settings.EMAIL_HOST_USER, [user.email], html_message=message)
         return Response({"exitoso": True}, status=status.HTTP_200_OK)
