@@ -13,6 +13,8 @@ Django = "==3.2.8"
 PyJWT = "==2.1.0"
 Pyrebase4 = "==4.5.0"
 openpyxl = "*"
+gunicorn = "*"
+django-heroku = "*"
 
 [dev-packages]
 autopep8 = "*"

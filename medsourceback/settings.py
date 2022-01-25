@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+import django_heroku
 from pathlib import Path
 from datetime import timedelta
 
@@ -26,7 +27,7 @@ SECRET_KEY = 'django-insecure-6$5$fu*i!*v%gv6^u^$!i29@oa_u#l#_2xnsw)d2_+d0c3j+rr
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 CORS_ALLOW_ALL_ORIGINS = True
 
@@ -168,3 +169,5 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = "medsourcetm@gmail.com"
 EMAIL_HOST_PASSWORD = "Med2021*"
+
+django_heroku.settings(locals())
