@@ -12,6 +12,7 @@ django-cors-headers = "==3.9.0"
 Django = "==3.2.8"
 PyJWT = "==2.1.0"
 Pyrebase4 = "==4.5.0"
+openpyxl = "*"
 
 [dev-packages]
 autopep8 = "*"

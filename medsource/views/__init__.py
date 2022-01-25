@@ -24,3 +24,4 @@ from .developmentRUDView import DevelopmentRUDView
 from .recordRUDView import RecordRUDView
 from .patientRecordRUDView import PatientRecordRUDView
 from .procedureRUDView import ProcedureRUDView
+from .workLabor import WorkView

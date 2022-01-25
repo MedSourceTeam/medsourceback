@@ -15,3 +15,4 @@ from .showDevelopmentSerializer import ShowDevelopmentSerializer
 from .showConsultationSerializer import ShowConsultationSerializer
 from .showDoctorSerializer import ShowDoctorSerializer
 from .showNurseSerializer import ShowNurseSerializer
+from .downloadSerializer import DownloadSerializer
