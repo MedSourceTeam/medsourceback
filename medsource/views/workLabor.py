@@ -1,8 +1,9 @@
+import base64
 import imp
 from io import BytesIO
 from urllib import request
 from wsgiref.util import FileWrapper
-from rest_framework import generics
+from rest_framework import generics, status
 from django.contrib.auth.models import User
 from medsource.models import Doctor, user, Nurse, Development
 from rest_framework_simplejwt.backends import TokenBackend
@@ -21,7 +22,7 @@ import os
 from django.http.response import HttpResponse
 
 
-class WorkView(generics.APIView):
+class WorkView(generics.GenericAPIView):
 
     serializer_class = DownloadSerializer
 
@@ -38,13 +39,15 @@ class WorkView(generics.APIView):
         except:
             person = Nurse.objects.get(user=valid_data["user_id"])
 
-        queryset = queryset.filter(Q(doctor__identification=39074) | Q(nurse__identification=person.identification))
+        queryset = queryset.filter(Q(doctor__identification=person.identification) | Q(
+            nurse__identification=person.identification))
 
         book = load_workbook(filename="medsource/resources/Formato.xlsx")
         sheet = book.active
 
         sheet["D4"] = str(person.hospital)
-        sheet["D5"] = str(person.user.first_name) + " " + str(person.user.last_name)
+        sheet["D5"] = str(person.user.first_name) + \
+            " " + str(person.user.last_name)
         sheet["D8"] = str(person.user.email)
         sheet["J5"] = str(person.identification)
 
@@ -56,27 +59,24 @@ class WorkView(generics.APIView):
             sheet["C" + str(pos)] = str(row.patient.full_name)
             sheet["D" + str(pos)] = str(row.patient.identification)
             sheet["E" + str(pos)] = str(row.procedure.name)
-            sheet["F" + str(pos)] = str(row.procedure.uvr)
+            sheet["F" + str(pos)] = int(row.procedure.uvr)
             pos += 1
-
 
         '''answer = BytesIO()
         book.save(answer)
         print(answer.read())
         return HttpResponse(answer.read(), content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')'''
 
-
-
         with open("medsource/resources/tempfile.xlsx", "wb+") as tmp:
             book.save(tmp.name)
-            tmp.seek(0)
-            return HttpResponse(FileWrapper(tmp), headers={'Content-Disposition': 'attachment; filename="file.xlsx"'},content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
-        
+            return Response({
+                "file": base64.b64encode(tmp.read()),
+                "mimeType": 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+            }, status.HTTP_200_OK)
 
-        #return Response({"data": book.})
+        # return Response({"data": book.})
 
         #book.save("medsource/resources/Pagos_" + str(person.identification) + ".xlsx")
-
 
         '''BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         # Define text file name
@@ -93,17 +93,10 @@ class WorkView(generics.APIView):
         response['Content-Disposition'] = "attachment; filename=%s" % filename
         # Return the response value
         return response'''
-        
-        
-        # valid_data es un diccionario que contiene toda la info del token, 
+
+        # valid_data es un diccionario que contiene toda la info del token,
         # se puede imprimir para verificar el nombre del campo que trae el id
         # de usuario, normalmente el campo se llama user_id
-
-
-
-
-
-
 
 
 '''from fileinput import filename

@@ -140,3 +140,4 @@ cython_debug/
 #Pycharm
 .idea/
 /.vs
+medsource/resources/tempfile.xlsx
