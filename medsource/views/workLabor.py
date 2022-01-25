@@ -1,25 +1,12 @@
 import base64
-import imp
-from io import BytesIO
-from urllib import request
-from wsgiref.util import FileWrapper
 from rest_framework import generics, status
-from django.contrib.auth.models import User
-from medsource.models import Doctor, user, Nurse, Development
+from medsource.models import Doctor, Nurse, Development
 from rest_framework_simplejwt.backends import TokenBackend
 from medsourceback import settings
 from medsource.serializers import DownloadSerializer
 from django.db.models import Q
 from openpyxl import load_workbook
 from rest_framework.response import Response
-from tempfile import NamedTemporaryFile
-
-# Import mimetypes module
-import mimetypes
-# import os module
-import os
-# Import HttpResponse module
-from django.http.response import HttpResponse
 
 
 class WorkView(generics.GenericAPIView):
@@ -62,45 +49,9 @@ class WorkView(generics.GenericAPIView):
             sheet["F" + str(pos)] = int(row.procedure.uvr)
             pos += 1
 
-        '''answer = BytesIO()
-        book.save(answer)
-        print(answer.read())
-        return HttpResponse(answer.read(), content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')'''
-
         with open("medsource/resources/tempfile.xlsx", "wb+") as tmp:
             book.save(tmp.name)
             return Response({
                 "file": base64.b64encode(tmp.read()),
                 "mimeType": 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
             }, status.HTTP_200_OK)
-
-        # return Response({"data": book.})
-
-        #book.save("medsource/resources/Pagos_" + str(person.identification) + ".xlsx")
-
-        '''BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        # Define text file name
-        filename = 'Formato.xlsx'
-        # Define the full file path
-        filepath = BASE_DIR + '/resources/' + filename
-        # Open the file for reading content
-        path = open(filepath, 'r')
-        # Set the mime type
-        mime_type, _ = mimetypes.guess_type(filepath)
-        # Set the return value of the HttpResponse
-        response = HttpResponse(path, content_type=mime_type)
-        # Set the HTTP header for sending to browser
-        response['Content-Disposition'] = "attachment; filename=%s" % filename
-        # Return the response value
-        return response'''
-
-        # valid_data es un diccionario que contiene toda la info del token,
-        # se puede imprimir para verificar el nombre del campo que trae el id
-        # de usuario, normalmente el campo se llama user_id
-
-
-'''from fileinput import filename
-import openpyxl
-
-book = load_workbook(filename="Formato.xlsx")
-sheet = book.active'''
